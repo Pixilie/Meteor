@@ -1,5 +1,5 @@
 from tkinter import *
-import requests
+import requests 
 import json
 import time
 
@@ -54,7 +54,7 @@ def search():
     date_info = time.ctime(date)
     #description = weather_info.get()
 
-    print(reponse_json)
+    print(response_json)
 
     reponse = "Nom: " + city + "\n" + "Pays: " + str(country) + "\n" + "Date & Heure: " + date_info + "\n" + "Temps: " + "str(description)" + "\n" + "\n" + "\n" + "Température :" + str(temp) + " °C" + "\n" + "Température minimum: " + str(temp_min) + " °C"+ "\n" +  "Température maximum: " + str(temp_max) + " °C" + "\n" + "Température ressentie: " + str(ressenti) + " °C" + "\n" + "\n" + "Humidité: " + str(humidity) + " %" + "\n" + "Pression: " + str(pressure) + " pascal" + "\n" + "Vitesse du vent: " + str(wind_speed) + " km/h" + "\n" + "Pourcentage de nuage: " + str(clouds) + " %" + "\n" + "\n" + "Le soleil se couchera à: " + str(sunset_info) + "\n" + "Le soleil se lèvera à: " + str(sunrise_info) + "\n"
 
