@@ -7,7 +7,6 @@ API = "33f784258bbf921ad48a2b9b3d06d4c6"
 units = "metric"
 lang = "fr"
 
-
 def meteo_window():
     #Creation fenetre
     meteo = Tk()
@@ -53,7 +52,7 @@ def search():
     date = response_json.get('dt')
     date_info = time.ctime(date)
     description = weather_info[0].get('description')
-    print(weather_info)
+    icon = weather_info[0].get('icon')
 
     print(response_json)
 
@@ -65,6 +64,13 @@ def search():
     temps = Label(meteo, text=reponse, font=("Arial", 15), bg='#00C5FE', fg='white')
     temps.pack()
 
+    #image
+    width = 60
+    height = 60
+    weather_image = PhotoImage(file='weather_icon\\' + icon + '.png').zoom(35).subsample(32)
+    weather_canvas = Canvas(meteo, width=width, height=height, bg='#00C5FE', bd=0, highlightthickness=0)
+    weather_canvas.create_image(width/2, height/2, image=weather_image)
+    weather_canvas.pack()
 
 
 #Creation fenetre
