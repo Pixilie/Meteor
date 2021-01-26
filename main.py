@@ -17,8 +17,8 @@ def meteo_window():
     meteo.title("Metéo de la ville de " + city)
     meteo.geometry("740x510")
     meteo.minsize(740, 510)
-    window.minsize(740, 510)
-    meteo.iconbitmap("meteor.ico")
+    window.maxsize(740, 510)
+    meteo.iconbitmap("app_icon\meteor.ico")
     meteo.config(background='#00C5FE')
     return meteo
 
@@ -52,11 +52,12 @@ def search():
     name = sys_info.get('name')
     date = response_json.get('dt')
     date_info = time.ctime(date)
-    #description = weather_info.get()
+    description = weather_info[0].get('description')
+    print(weather_info)
 
     print(response_json)
 
-    reponse = "Nom: " + city + "\n" + "Pays: " + str(country) + "\n" + "Date & Heure: " + date_info + "\n" + "Temps: " + "str(description)" + "\n" + "\n" + "\n" + "Température :" + str(temp) + " °C" + "\n" + "Température minimum: " + str(temp_min) + " °C"+ "\n" +  "Température maximum: " + str(temp_max) + " °C" + "\n" + "Température ressentie: " + str(ressenti) + " °C" + "\n" + "\n" + "Humidité: " + str(humidity) + " %" + "\n" + "Pression: " + str(pressure) + " pascal" + "\n" + "Vitesse du vent: " + str(wind_speed) + " km/h" + "\n" + "Pourcentage de nuage: " + str(clouds) + " %" + "\n" + "\n" + "Le soleil se couchera à: " + str(sunset_info) + "\n" + "Le soleil se lèvera à: " + str(sunrise_info) + "\n"
+    reponse = "Nom: " + city + "\n" + "Pays: " + str(country) + "\n" + "Date & Heure: " + date_info + "\n" + "Temps: " + str(description) + "\n" + "\n" + "\n" + "Température :" + str(temp) + " °C" + "\n" + "Température minimum: " + str(temp_min) + " °C"+ "\n" +  "Température maximum: " + str(temp_max) + " °C" + "\n" + "Température ressentie: " + str(ressenti) + " °C" + "\n" + "\n" + "Humidité: " + str(humidity) + " %" + "\n" + "Pression: " + str(pressure) + " hectopascal" + "\n" + "Vitesse du vent: " + str(wind_speed) + " km/h" + "\n" + "Pourcentage de nuage: " + str(clouds) + " %" + "\n" + "\n" + "Le soleil se couchera à: " + str(sunset_info) + "\n" + "Le soleil se lèvera à: " + str(sunrise_info) + "\n"
 
     meteo = meteo_window()
     titre = Label(meteo, text="Météo de " + city, font=("Arial", 30), bg='#00C5FE', fg='white')
@@ -74,13 +75,13 @@ window.title("Meteor")
 window.geometry("740x510")
 window.minsize(740, 510)
 window.maxsize(740, 510)
-window.iconbitmap("meteor.ico")
+window.iconbitmap("app_icon\meteor.ico")
 window.config(background='#00C5FE')
 
 #image
 width = 170
 height = 165
-image = PhotoImage(file="meteor.png")
+image = PhotoImage(file="app_icon\meteor.png")
 canvas = Canvas(window, width=width, height=height, bg='#00C5FE', bd=0, highlightthickness=0)
 canvas.create_image(width/2, height/2, image=image)
 canvas.pack(pady=20)
