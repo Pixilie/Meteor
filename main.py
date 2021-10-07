@@ -27,7 +27,7 @@ def meteo_window():
 
 def search():
     city = entry.get()
-    url="http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&lang=fr&appid=33f784258bbf921ad48a2b9b3d06d4c6"
+    url="http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&lang=fr&appid=token"
     response = requests.get(url)
     response_json = (response.json())
     meteo = meteo_window()
