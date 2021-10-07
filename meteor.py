@@ -1,11 +1,11 @@
-import tkinter    
+import tkinter
 from tkinter import *
 import requests
 import json
 import time
 import webbrowser
 
-API = "33f784258bbf921ad48a2b9b3d06d4c6"
+API = "token"
 
 # Dictionnaire des textes affichés (pour une langue en entrée)
 def get_dictionnaire (langue):
