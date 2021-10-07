@@ -1,10 +1,9 @@
-# import de tkinter
 import tkinter    
 from tkinter import *
-import requests 
+import requests
 import json
 import time
-import webbrowser     
+import webbrowser
 
 API = "33f784258bbf921ad48a2b9b3d06d4c6"
 
@@ -63,8 +62,8 @@ def get_label(label, langue):
     dictionnaire = get_dictionnaire (langue)
     new_label = dictionnaire.get (label)
     return new_label
-  
-# Création fenêtres des paramètres 
+
+# Création fenêtres des paramètres
 def setting_window():
     #Création fenetre
     global setting
@@ -84,7 +83,7 @@ def setting_window():
     langue_text.set (get_label('choose_langage', langue))
     text_units = Label(setting, textvariable=langue_text, font=("Arial", 15), bg='#00C5FE', fg='white')
     text_units.place(x=10, y=10)
-    
+
     option_langue = OptionMenu(setting, var_langue, *langues, command=change_langue)
     option_langue.config(width=10, font=('Arial', 12))
     option_langue.place(x=10, y=50)
@@ -96,7 +95,7 @@ def change_langue(self):
     search_text.set (get_label('search', langue))
     setting.destroy()
 
-# Création et affichage des informations météo (appel api et traitement réponse) 
+# Création et affichage des informations météo (appel api et traitement réponse)
 def search():
     city = entry.get()
     if city != '':
@@ -139,89 +138,89 @@ def display_info_meteo(window, response_json):
     meteo_title_lbl = get_label ('weather_of', langue) + " " + city
     titre = Label(window, text=meteo_title_lbl, font=("Arial", 30), bg='#00C5FE', fg='white')
     titre.pack()
-    
+
     # 1er ligne - ville
     name_text = get_label('Name', langue)
     name_lbl = Label(window, text=name_text, font=("Arial", 15), bg='#00C5FE', fg='white')
-    name_lbl.place(x=130,y =90)   
+    name_lbl.place(x=130,y =90)
     city_lbl = Label(window, text=city, font=("Arial", 15), bg='#00C5FE', fg='white')
     city_lbl.place(x=380,y =90)
     # 2ème ligne - pays
     country_st_text = get_label('country', langue)
     country_st_lbl = Label(window, text=country_st_text, font=("Arial", 15), bg='#00C5FE', fg='white')
-    country_st_lbl.place(x=130,y =120) 
+    country_st_lbl.place(x=130,y =120)
     country_lbl = Label(window, text=str(country), font=("Arial", 15), bg='#00C5FE', fg='white')
     country_lbl.place(  x=380,y =120)
     # 3ème ligne - date et heure
     date_text = get_label('date_hour', langue)
     date_st_lbl = Label(window, text=date_text, font=("Arial", 15), bg='#00C5FE', fg='white')
-    date_st_lbl.place(x=130,y =150) 
+    date_st_lbl.place(x=130,y =150)
     date_lbl = Label(window, text=date_info, font=("Arial", 15), bg='#00C5FE', fg='white')
     date_lbl.place(  x=380,y =150)
     # 4ème ligne - temps
     weather_txt = get_label('weather', langue)
     weather_st_lbl = Label(window, text=weather_txt, font=("Arial", 15), bg='#00C5FE', fg='white')
-    weather_st_lbl.place(x=130,y =180) 
+    weather_st_lbl.place(x=130,y =180)
     weather_lbl = Label(window, text=str(description), font=("Arial", 15), bg='#00C5FE', fg='white')
     weather_lbl.place(x=380,y =180)
     # 5ème ligne - temperature
     temp_st = get_label ('temp', langue)
     temp_st_lbl = Label(window, text=temp_st, font=("Arial", 15), bg='#00C5FE', fg='white')
-    temp_st_lbl.place(x=130,y =210) 
+    temp_st_lbl.place(x=130,y =210)
     temp_lbl = Label(window, text=str(temp)+ " °C", font=("Arial", 15), bg='#00C5FE', fg='white')
     temp_lbl.place(x=380,y =210)
-    # 6ème ligne - température min    
+    # 6ème ligne - température min
     temp_min_txt = get_label('min_temp', langue)
     temp_min_st_lbl = Label(window, text=temp_min_txt, font=("Arial", 15), bg='#00C5FE', fg='white')
-    temp_min_st_lbl.place(x=130,y =240) 
+    temp_min_st_lbl.place(x=130,y =240)
     temp_min_lbl = Label(window, text=str(temp_min) + " °C", font=("Arial", 15), bg='#00C5FE', fg='white')
     temp_min_lbl.place(x=380,y =240)
-    # 7ème ligne - température max    
+    # 7ème ligne - température max
     temp_max_txt = get_label('max_temp', langue)
     temp_max_st_lbl = Label(window, text=temp_max_txt, font=("Arial", 15), bg='#00C5FE', fg='white')
-    temp_max_st_lbl.place(x=130,y =270) 
+    temp_max_st_lbl.place(x=130,y =270)
     temp_max_lbl = Label(window, text=str(temp_max) + " °C", font=("Arial", 15), bg='#00C5FE', fg='white')
     temp_max_lbl.place(x=380,y =270)
-    # 8ème ligne - température ressentie    
+    # 8ème ligne - température ressentie
     felt_temp_txt = get_label('felt_temp', langue)
     felt_temp_st_lbl = Label(window, text=felt_temp_txt, font=("Arial", 15), bg='#00C5FE', fg='white')
-    felt_temp_st_lbl.place(x=130,y =300) 
+    felt_temp_st_lbl.place(x=130,y =300)
     felt_temp_lbl = Label(window, text=str(ressenti) + " °C", font=("Arial", 15), bg='#00C5FE', fg='white')
     felt_temp_lbl.place(x=380,y =300)
-    # 9ème ligne - humidité    
+    # 9ème ligne - humidité
     humidity_txt = get_label('humidity', langue)
     humidity_st_lbl = Label(window, text=humidity_txt, font=("Arial", 15), bg='#00C5FE', fg='white')
-    humidity_st_lbl.place(x=130,y =330) 
+    humidity_st_lbl.place(x=130,y =330)
     humidity_lbl = Label(window, text=str(humidity) + " %", font=("Arial", 15), bg='#00C5FE', fg='white')
-    humidity_lbl.place(x=380,y =330)    
-    # 10ème ligne - pression    
+    humidity_lbl.place(x=380,y =330)
+    # 10ème ligne - pression
     pressure_txt = get_label('pressure', langue)
     pressure_st_lbl = Label(window, text=pressure_txt, font=("Arial", 15), bg='#00C5FE', fg='white')
-    pressure_st_lbl.place(x=130,y =360) 
+    pressure_st_lbl.place(x=130,y =360)
     pressure_lbl = Label(window, text=str(pressure) + " hpa", font=("Arial", 15), bg='#00C5FE', fg='white')
-    pressure_lbl.place(x=380,y =360)    
-    # 11ème ligne - vitesse du vent    
+    pressure_lbl.place(x=380,y =360)
+    # 11ème ligne - vitesse du vent
     wind_speed_txt = get_label('wind_speed', langue)
     wind_speed_st_lbl = Label(window, text=wind_speed_txt, font=("Arial", 15), bg='#00C5FE', fg='white')
-    wind_speed_st_lbl.place(x=130,y =390) 
+    wind_speed_st_lbl.place(x=130,y =390)
     wind_speed_lbl = Label(window, text=str(wind_speed) + " km/h", font=("Arial", 15), bg='#00C5FE', fg='white')
     wind_speed_lbl.place(x=380,y =390)
-    # 12ème ligne - nuages    
+    # 12ème ligne - nuages
     percentage_clouds_txt = get_label('percentage_clouds', langue)
     percentage_clouds_st_lbl = Label(window, text=percentage_clouds_txt, font=("Arial", 15), bg='#00C5FE', fg='white')
-    percentage_clouds_st_lbl.place(x=130,y =420) 
+    percentage_clouds_st_lbl.place(x=130,y =420)
     percentage_clouds_lbl = Label(window, text=str(clouds) + " %", font=("Arial", 15), bg='#00C5FE', fg='white')
     percentage_clouds_lbl.place(x=380,y =420)
-    # 13ème ligne - lever soleil    
+    # 13ème ligne - lever soleil
     sunset_txt = get_label('sunset', langue)
     sunset_st_lbl = Label(window, text=sunset_txt, font=("Arial", 15), bg='#00C5FE', fg='white')
-    sunset_st_lbl.place(x=130,y =450) 
+    sunset_st_lbl.place(x=130,y =450)
     sunset_lbl = Label(window, text=str(sunset_info), font=("Arial", 15), bg='#00C5FE', fg='white')
-    sunset_lbl.place(x=380,y =450)       
-    # 14ème ligne - coucher soleil    
+    sunset_lbl.place(x=380,y =450)
+    # 14ème ligne - coucher soleil
     sunrise_txt = get_label('sunrise', langue)
     sunrise_st_lbl = Label(window, text=sunrise_txt, font=("Arial", 15), bg='#00C5FE', fg='white')
-    sunrise_st_lbl.place(x=130,y =480) 
+    sunrise_st_lbl.place(x=130,y =480)
     sunrise_lbl = Label(window, text=str(sunrise_info), font=("Arial", 15), bg='#00C5FE', fg='white')
     sunrise_lbl.place(x=380,y =480)
 
@@ -230,7 +229,7 @@ def meteo_window():
     #Creation fenetre
     meteo = Toplevel()
     city = entry.get()
-    
+
     #Paramètre de la fenêtre
     langue = var_langue.get()
     weather_of_lbl = get_label ('weather_of', langue)
@@ -241,13 +240,13 @@ def meteo_window():
     meteo.iconbitmap("app_icon\meteor.ico")
     meteo.config(background='#00C5FE')
     return meteo
-    
+
 def callback(event):
     webbrowser.open_new("http://www.openweathermap.org")
 
 # Programme principal
 #  création de la fenêtre principale
-main_window = tkinter.Tk ()   
+main_window = tkinter.Tk ()
 
 #  paramètres de la fenêtre
 main_window.title("Meteor")
@@ -275,7 +274,7 @@ canvas.create_image(width/2, height/2, image=image)
 canvas.pack(pady=20)
 
 # boites
-frame = Frame(main_window, bg='#00C5FE') 
+frame = Frame(main_window, bg='#00C5FE')
 
 # texte titre principal : label_title
 welcome_text = StringVar()
@@ -308,4 +307,4 @@ setting_button.place(x=5, y=5)
 frame.pack(expand=YES)
 
 # affichage fenêtre principal et attente événements (souris, clic, clavier)
-main_window.mainloop ()     
+main_window.mainloop ()
