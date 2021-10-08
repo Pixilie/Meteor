@@ -99,7 +99,7 @@ def change_langue(self):
 def search():
     city = entry.get()
     if city != '':
-        url="http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&lang=fr&appid=33f784258bbf921ad48a2b9b3d06d4c6"
+        url="http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&lang=fr&appid=" + API
         response = requests.get(url)
         response_json = (response.json())
         print (response_json)
