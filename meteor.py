@@ -3,9 +3,9 @@ from tkinter import *
 import requests
 import json
 import time
-import webbrowser
+import webbrowser 
 
-API = "token"
+API = "YourTokenHere"
 
 # Dictionnaire des textes affichés (pour une langue en entrée)
 def get_dictionnaire (langue):
