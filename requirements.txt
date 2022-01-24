@@ -1,5 +1,4 @@
 DateTime==4.3
-jsonschema==4.0.1
 requests==2.26.0
 urllib3==1.26.7
 tk==0.1.0
